@@ -255,7 +255,7 @@
   .pc-viewport::-webkit-scrollbar{display:none}
   .pc-track{display:flex;gap:28px;padding:10px 6px;justify-content:flex-start}
   .proj-cover{flex:0 0 300px;max-width:300px;scroll-snap-align:center;text-align:center;display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;padding:8px}
-  .pc-media{width:196px;height:196px;position:relative;margin-bottom:6px}
+  .pc-media{width:196px;height:196px;position:relative;margin-bottom:6px;border-radius:50%;background:linear-gradient(135deg,#242356,#17162F)}
   .pc-media img{width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:2}
   .pc-media::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:3px solid var(--tan);z-index:1}
   .pc-media::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:3px solid var(--navy);opacity:.4;z-index:1;transform:rotate(7deg) scale(1.02)}
@@ -565,13 +565,20 @@
       <div class="pc-viewport" id="pcViewport">
         <div class="pc-track">
           <article class="proj-cover" data-target="proj-floodadapt" tabindex="0" role="button" aria-label="Open FloodAdapt Communities Project">
-            <div class="pc-media"><img src="project-photos/floodadapt-cover.jpg" alt="FloodAdapt community gathering in Kasese"></div>
+            <div class="pc-media"><img src="project-photos/floodadapt-cover.jpg" alt="FloodAdapt community gathering in Kasese" onerror="this.style.display='none'"></div>
             <span class="project-status">In progress</span>
             <h3>FloodAdapt Communities Project</h3>
             <p>Youth-led flood resilience across Karusandara and Chelanga sub-counties, Kasese.</p>
             <span class="pc-view">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></span>
           </article>
-          <!-- ADD A PROJECT: copy this .proj-cover block, set data-target to a new detail id, and add a matching <div class="proj-detail" id="..."> below. -->
+          <article class="proj-cover" data-target="proj-srmh-workshop" tabindex="0" role="button" aria-label="Open Sexual, Reproductive and Mental Health Workshop">
+            <div class="pc-media"><img src="project-photos/srmh.jpg" alt="SRMH workshop, Kasangati" onerror="this.style.display='none'"></div>
+            <span class="project-status">Completed</span>
+            <h3>Sexual, Reproductive &amp; Mental Health Workshop</h3>
+            <p>A community workshop held with Lupins Africa in Kasangati, Kampala.</p>
+            <span class="pc-view">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></span>
+          </article>
+                    <!-- ADD A PROJECT: copy this .proj-cover block, set data-target to a new detail id, and add a matching <div class="proj-detail" id="..."> below. -->
         </div>
       </div>
       <button class="pc-arrow pc-next" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -590,6 +597,15 @@
           <div class="project-gallery"><button class="pg-item" aria-label="Open project photo 1"><img src="project-photos/floodadapt-1.jpg" alt="FloodAdapt project photo 1" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 2"><img src="project-photos/floodadapt-2.jpg" alt="FloodAdapt project photo 2" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 3"><img src="project-photos/floodadapt-3.jpg" alt="FloodAdapt project photo 3" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 4"><img src="project-photos/floodadapt-4.jpg" alt="FloodAdapt project photo 4" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 5"><img src="project-photos/floodadapt-5.jpg" alt="FloodAdapt project photo 5" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 6"><img src="project-photos/floodadapt-6.jpg" alt="FloodAdapt project photo 6" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 7"><img src="project-photos/floodadapt-7.jpg" alt="FloodAdapt project photo 7" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 8"><img src="project-photos/floodadapt-8.jpg" alt="FloodAdapt project photo 8" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 9"><img src="project-photos/floodadapt-9.jpg" alt="FloodAdapt project photo 9" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 10"><img src="project-photos/floodadapt-10.jpg" alt="FloodAdapt project photo 10" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 11"><img src="project-photos/floodadapt-11.jpg" alt="FloodAdapt project photo 11" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 12"><img src="project-photos/floodadapt-12.jpg" alt="FloodAdapt project photo 12" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 13"><img src="project-photos/floodadapt-13.jpg" alt="FloodAdapt project photo 13" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 14"><img src="project-photos/floodadapt-14.jpg" alt="FloodAdapt project photo 14" loading="lazy"></button></div>
         </div>
       </div>
+      <div class="proj-detail" id="proj-srmh-workshop">
+        <div class="proj-detail-inner">
+          <p class="project-lead">Over a weekend in Kasangati, Front Rise Health Uganda and Lupins Africa hosted a sexual, reproductive and mental health workshop &mdash; a safe, supportive space for community members to speak openly about issues too often met with silence and stigma. Participants asked questions, shared their experiences, and left with practical knowledge for healthier, safer choices and the confidence to seek SRHR and mental-health support.</p>
+          <div class="project-chips"><span>Kasangati, Kampala</span><span>Reproductive health &amp; rights</span><span>Mental health</span></div>
+          <p class="project-funder">Delivered in partnership with <b>Lupins Africa</b>.</p>
+          <div class="project-gallery"><button class="pg-item"><img src="project-photos/srmh.jpg" alt="SRMH workshop, Kasangati" loading="lazy"></button></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
