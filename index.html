@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Front Rise Health Uganda — Community Health and Research</title>
+<meta name="description" content="Front Rise Health Uganda advances sexual and reproductive health, antimicrobial stewardship, mental health, and homegrown research across 12 districts of southwestern Uganda." />
+<link rel="icon" href="brand/emblem.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#201F3D;
+    --navy:#21204B;
+    --navy-deep:#17162F;
+    --tan:#C1AD92;
+    --tan-soft:#DBCDB7;
+    --gold:#A6824B;
+    --paper:#F7F4EE;
+    --sand:#EFE8DC;
+    --muted:#6B6678;
+    --line:#E3DBCE;
+    --white:#FFFFFF;
+    --maxw:1160px;
+    --r:18px;
+    --shadow:0 1px 2px rgba(23,22,47,.06), 0 18px 40px -24px rgba(23,22,47,.4);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;font-size:18px}
+  body{margin:0;font-family:"Hanken Grotesk",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.05;margin:0;font-weight:700;letter-spacing:-.015em}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);display:inline-flex;align-items:center;gap:.6em}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold);border-radius:2px}
+
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:.98rem;padding:.8em 1.4em;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;white-space:nowrap}
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 12px 24px -12px rgba(23,22,47,.6)}
+  .btn-gold{background:var(--tan);color:var(--navy-deep)}
+  .btn-gold:hover{background:#b09c7f;transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--navy);color:var(--navy);transform:translateY(-2px)}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.85);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .25s ease, box-shadow .25s ease}
+  header.nav.scrolled{border-color:var(--line);box-shadow:0 6px 20px -18px rgba(23,22,47,.5)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{display:flex;align-items:center}
+  .logo-nav{height:42px;width:auto}
+  .nav-links{display:flex;align-items:center;gap:2rem}
+  .nav-links nav{display:flex;gap:1.9rem;align-items:center}
+  .nav-item{position:relative}
+  .nav-link{display:inline-flex;align-items:center;gap:.35em;font-size:.95rem;font-weight:500;color:var(--ink);opacity:.82;transition:opacity .15s,color .15s;position:relative;padding:6px 0;cursor:pointer}
+  .nav-link .caret{width:13px;height:13px;transition:transform .25s}
+  .nav-item:hover .nav-link .caret,.nav-item.open .nav-link .caret{transform:rotate(180deg)}
+  .nav-link::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+  .nav-link:hover{opacity:1;color:var(--navy)}
+  .nav-link:hover::after,.nav-link.active::after{transform:scaleX(1)}
+  .nav-link.active{opacity:1;color:var(--navy);font-weight:600}
+  .dropdown{position:absolute;top:calc(100% + 10px);left:-14px;min-width:238px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:60}
+  .dropdown::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+  .nav-item:hover .dropdown,.nav-item:focus-within .dropdown,.nav-item.open .dropdown{opacity:1;visibility:visible;transform:none}
+  .dropdown a{display:block;padding:9px 12px;border-radius:9px;font-size:.9rem;font-weight:500;color:var(--ink);opacity:.9;transition:background .15s,color .15s}
+  .dropdown a:hover{background:var(--sand);color:var(--navy);opacity:1}
+  section[id],.theme,.pv .card,#our-values,.path{scroll-margin-top:96px}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.25s;border-radius:2px}
+
+  .hero{position:relative;overflow:hidden;padding:88px 0 96px}
+  .hero .sun{position:absolute;left:50%;top:-160px;transform:translateX(-50%);width:min(1200px,140vw);aspect-ratio:2/1;pointer-events:none;z-index:0;
+    background:radial-gradient(closest-side at 50% 100%, rgba(193,173,146,.32) 0%, rgba(219,205,183,.24) 34%, rgba(239,232,220,.5) 55%, transparent 72%)}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.5rem,5.4vw,4.1rem);letter-spacing:-.03em}
+  .hero h1 .rise{color:var(--navy);position:relative;white-space:nowrap}
+  .hero h1 .rise::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.16em;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--tan));opacity:.9}
+  .hero p.lede{font-size:1.18rem;color:var(--muted);max-width:34ch;margin-top:22px}
+  .hero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+  .facts{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap}
+  .fact .n{font-family:"Bricolage Grotesque";font-weight:800;font-size:2.1rem;color:var(--navy);line-height:1}
+  .fact .l{font-size:.82rem;color:var(--muted);font-weight:600;letter-spacing:.02em;margin-top:4px}
+
+  .hero-card{position:relative;border-radius:var(--r);overflow:hidden;min-height:420px;background:linear-gradient(180deg,#242356 0%, #21204B 46%, #1b1a3d 100%);box-shadow:var(--shadow);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:30px}
+  .hero-card .arc{position:absolute;left:50%;bottom:-46%;transform:translateX(-50%);width:150%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at 50% 0,var(--tan) 0 26%,rgba(219,205,183,.5) 26% 40%,transparent 41%);opacity:.85}
+  .hero-card .rings{position:absolute;inset:0;background:repeating-radial-gradient(circle at 50% 118%, transparent 0 38px, rgba(255,255,255,.06) 38px 39px)}
+  .hero-card .cap{position:relative;z-index:2}
+  .hero-card .cap .tag{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tan);font-weight:700}
+  .hero-card .cap h3{font-size:1.5rem;margin-top:8px;color:#fff}
+  .hero-card .cap p{color:rgba(255,255,255,.82);font-size:.96rem;margin-top:8px}
+  .hero-card .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero-card.photo{background:transparent}
+  .hero-card.photo::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(33,32,75,.45) 0%,rgba(23,22,47,.55) 45%,rgba(23,22,47,.9) 100%)}
+  .hero-card .rings{z-index:1}
+  .hero-card .arc{z-index:2}
+  .hero-card .cap{z-index:3}
+  .hero-holder{position:absolute;top:32%;left:50%;transform:translate(-50%,-50%);z-index:2;display:inline-flex;align-items:center;gap:.5em;color:rgba(219,205,183,.65);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;font-weight:700;border:1.5px dashed rgba(219,205,183,.45);border-radius:999px;padding:.6em 1.1em;white-space:nowrap;background:rgba(23,22,47,.25)}
+  .hero-holder svg{width:15px;height:15px;flex:none}
+  .hero-card.photo .hero-holder{display:none}
+
+  section{padding:92px 0}
+  .band-sand{background:var(--sand)}
+  .band-navy{background:var(--navy-deep);color:var(--tan-soft)}
+  .sec-head{max-width:60ch;text-align:center;margin-left:auto;margin-right:auto}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-top:16px}
+  .sec-head p{color:var(--muted);font-size:1.08rem;margin-top:14px}
+
+  .themes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;align-items:start}
+  .theme{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:0;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+  .theme:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+  .theme .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--sand);color:var(--navy);flex:none}
+  .theme .ic svg{width:24px;height:24px}
+  .theme h3{font-size:1.28rem}
+  .theme p{color:var(--muted);font-size:.98rem}
+  .theme .obj{font-size:.9rem;color:var(--ink);border-top:1px dashed var(--line);padding-top:14px;margin-top:2px}
+  .theme .obj b{color:var(--gold);font-weight:700}
+  .theme-media{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,#242356,#17162F);display:grid;place-items:center;overflow:hidden}
+  .theme-media .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(219,205,183,.14);color:var(--tan);transition:opacity .3s;z-index:1}
+  .theme-media .ic svg{width:26px;height:26px}
+  .theme-media .hint{position:absolute;bottom:10px;left:0;right:0;text-align:center;color:rgba(219,205,183,.45);font-size:.66rem;letter-spacing:.05em;z-index:1}
+  .theme-media img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+  .theme:hover .theme-media img.ph{transform:scale(1.06)}
+  .theme-media.loaded .ic,.theme-media.loaded .hint{opacity:0}
+  .theme-body{padding:24px 28px 30px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .theme-head{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:none;border:0;cursor:pointer;padding:20px 24px;text-align:left;font:inherit;color:var(--ink)}
+  .theme-head h3{font-size:1.18rem;line-height:1.15}
+  .theme-head .chev{width:18px;height:18px;color:var(--gold);flex:none;transition:transform .3s}
+  .theme.open .theme-head .chev{transform:rotate(180deg)}
+  .theme-head:hover h3{color:var(--navy)}
+  .theme-detail{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .theme-detail-inner{padding:0 24px 24px;display:flex;flex-direction:column;gap:12px}
+
+  .pv{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+  .pv .card{border-radius:var(--r);padding:36px;position:relative;overflow:hidden}
+  .pv .purpose{background:var(--white);border:1px solid var(--line)}
+  .pv .vision{background:linear-gradient(160deg,#21204B,#17162F);color:#fff}
+  .pv .card .k{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+  .pv .purpose .k{color:var(--gold)}
+  .pv .vision .k{color:var(--tan)}
+  .pv .card h3{font-size:1.5rem;margin:12px 0 12px}
+  .pv .purpose p{color:var(--muted)}
+  .pv .vision p{color:rgba(255,255,255,.85)}
+  .pv .vision .sun2{position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,var(--tan) 0 40%,transparent 60%);opacity:.3}
+
+  .values{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  .value{padding:26px 22px;border-radius:14px;background:rgba(255,255,255,.6);border:1px solid var(--line)}
+  .value .num{font-family:"Bricolage Grotesque";font-weight:800;color:var(--gold);font-size:1.1rem}
+  .value h4{font-size:1.12rem;margin:10px 0 8px}
+  .value p{font-size:.9rem;color:var(--muted)}
+
+  .impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+  .stat{text-align:left}
+  .stat .n{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;color:#fff}
+  .stat .l{color:rgba(219,205,183,.85);font-weight:600;margin-top:8px;font-size:.95rem}
+  .impact-note{margin-top:40px;font-size:.85rem;color:rgba(219,205,183,.6);max-width:70ch}
+  .project{display:grid;grid-template-columns:1fr 1.1fr;margin-top:44px;background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);text-align:left}
+  .project-media{position:relative;min-height:380px;background:linear-gradient(135deg,#242356,#17162F);display:grid;place-items:center;overflow:hidden}
+  .project-media .ic{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:rgba(219,205,183,.14);color:var(--tan)}
+  .project-media .ic svg{width:28px;height:28px}
+  .project-media .hint{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:rgba(219,205,183,.45);font-size:.68rem;letter-spacing:.04em}
+  .project-media img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .project-body{padding:40px}
+  .project-tags{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px}
+  .project-tags span{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);background:var(--sand);padding:.45em .85em;border-radius:999px}
+  .project-lead{font-size:1.02rem;color:var(--ink)}
+  .funder{margin:22px 0;padding:15px 18px;border-left:3px solid var(--tan);background:var(--sand);border-radius:0 10px 10px 0}
+  .funder-k{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .funder-v{font-weight:600;color:var(--navy)}
+  .project-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+  .project-facts .pf-n{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.35rem;color:var(--navy);line-height:1.1}
+  .project-facts .pf-l{font-size:.78rem;color:var(--muted);font-weight:600;margin-top:3px}
+  @media(max-width:760px){.project{grid-template-columns:1fr}.project-media{min-height:240px}.project-body{padding:28px 24px}}
+  .project-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+  .project-chips span{font-size:.74rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);background:var(--sand);padding:.5em .9em;border-radius:999px}
+  .project-funder{text-align:center;color:var(--muted);font-size:.92rem;margin-top:16px}
+  .project-funder b{color:var(--navy)}
+  .project-gallery{margin-top:38px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .pg-item{padding:0;border:0;background:none;cursor:pointer;border-radius:14px;overflow:hidden;aspect-ratio:940/788;box-shadow:var(--shadow);position:relative;display:block}
+  .pg-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+  .pg-item:hover img{transform:scale(1.05)}
+  .pg-item::after{content:"";position:absolute;inset:0;background:rgba(23,22,47,0);transition:background .2s}
+  .pg-item:hover::after{background:rgba(23,22,47,.1)}
+  .lightbox{position:fixed;inset:0;z-index:200;background:rgba(15,14,30,.93);display:none;align-items:center;justify-content:center;padding:24px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb-btn{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;width:52px;height:52px;border-radius:50%;cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s,border-color .2s}
+  .lb-btn:hover{background:var(--tan);color:var(--navy-deep);border-color:var(--tan)}
+  .lb-btn svg{width:24px;height:24px}
+  .lb-prev{left:18px;top:50%;transform:translateY(-50%)}
+  .lb-next{right:18px;top:50%;transform:translateY(-50%)}
+  .lb-close{top:18px;right:18px;width:46px;height:46px}
+  .lb-count{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:rgba(255,255,255,.75);font-size:.85rem;letter-spacing:.05em}
+  @media(max-width:640px){.lb-btn{width:44px;height:44px}.lb-prev{left:8px}.lb-next{right:8px}}
+  .project-card{margin-top:40px;background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-align:left;box-shadow:var(--shadow)}
+  .project-head{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;background:none;border:0;cursor:pointer;text-align:left;font:inherit;color:var(--ink);padding:26px 32px}
+  .ph-left{display:flex;flex-direction:column;gap:7px;align-items:flex-start}
+  .project-status{display:inline-flex;align-items:center;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--sand);padding:.4em .8em;border-radius:999px}
+  .project-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#2e9e63;display:inline-block;margin-right:.55em}
+  .ph-title{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.4rem;letter-spacing:-.015em;line-height:1.1}
+  .project-sub{font-size:.9rem;color:var(--muted)}
+  .ph-toggle{display:inline-flex;align-items:center;gap:.5em;color:var(--navy);font-weight:600;font-size:.92rem;flex:none}
+  .ph-toggle .chev{width:18px;height:18px;transition:transform .3s}
+  .project-card.open .ph-toggle .chev{transform:rotate(180deg)}
+  .project-collapse{max-height:0;overflow:hidden;transition:max-height .45s ease}
+  .project-collapse-inner{padding:4px 32px 32px}
+  .project-stats{display:flex;gap:40px;flex-wrap:wrap;margin:6px 0 22px}
+  .project-stats .ps-n{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.9rem;color:var(--navy);line-height:1}
+  .project-stats .ps-l{font-size:.82rem;color:var(--muted);font-weight:600;margin-top:5px}
+  .project-collapse-inner .project-chips{justify-content:flex-start;margin-top:0;margin-bottom:18px}
+  .project-collapse-inner .project-funder{text-align:left;margin-top:0}
+  @media(max-width:640px){.project-head{padding:22px 22px}.project-collapse-inner{padding:4px 22px 26px}.ph-label{display:none}}
+
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:46px}
+  .member{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:28px 24px;text-align:center;transition:transform .2s ease, box-shadow .2s ease}
+  .member:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .avatar{position:relative;overflow:hidden;width:150px;height:186px;border-radius:20px;display:grid;place-items:center;font-family:"Bricolage Grotesque";font-weight:700;color:#fff;font-size:2.2rem;margin:0 auto 18px}
+  .avatar img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .member h4{font-size:1.08rem}
+  .member .role{color:var(--gold);font-weight:600;font-size:.86rem;margin:4px 0 8px}
+  .member p{font-size:.86rem;color:var(--muted)}
+  .team-actions{display:flex;justify-content:center;margin-top:30px}
+  .team-toggle{display:inline-flex;align-items:center;gap:.5em;font:inherit;font-weight:600;font-size:.98rem;color:#fff;background:var(--navy);border:0;border-radius:999px;padding:.8em 1.5em;cursor:pointer;transition:background .2s,transform .2s}
+  .team-toggle:hover{background:var(--navy-deep);transform:translateY(-2px)}
+  .team-toggle .chev{width:16px;height:16px;transition:transform .3s}
+  .team-toggle[aria-expanded="true"] .chev{transform:rotate(180deg)}
+  .team-collapse{max-height:0;overflow:hidden;transition:max-height .45s ease}
+  .team-hidden{display:none}
+
+  .paths{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:46px}
+  .path{border-radius:var(--r);padding:28px;border:1px solid var(--line);background:var(--white);display:flex;flex-direction:column;gap:12px;transition:transform .2s, box-shadow .2s}
+  .path:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .path .ic{width:44px;height:44px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center}
+  .path .ic svg{width:22px;height:22px}
+  .path h4{font-size:1.14rem}
+  .path p{font-size:.9rem;color:var(--muted);flex:1}
+  .path a{font-weight:600;color:var(--navy);font-size:.92rem;display:inline-flex;align-items:center;gap:.4em}
+  .path a:hover{gap:.7em;color:var(--gold)}
+
+  .cta-band{position:relative;overflow:hidden;background:linear-gradient(120deg,#21204B,#17162F);color:#fff;border-radius:26px;padding:56px;text-align:center;margin:0 auto}
+  .cta-band .sun3{position:absolute;left:50%;bottom:-70%;transform:translateX(-50%);width:120%;aspect-ratio:2/1;background:radial-gradient(closest-side at 50% 0,var(--tan) 0 30%,transparent 62%);opacity:.45}
+  .cta-band h2{position:relative;font-size:clamp(1.8rem,4vw,2.6rem);max-width:20ch;margin:0 auto}
+  .cta-band p{position:relative;color:rgba(255,255,255,.82);margin:16px auto 0;max-width:52ch}
+  .cta-band .row{position:relative;display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+  .partners{margin-bottom:58px;text-align:center}
+  .partners-label{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:26px}
+  .partner-lockup{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 36px;box-shadow:var(--shadow);display:flex;justify-content:center;max-width:900px;margin:0 auto}
+  .partner-lockup img{max-width:100%;height:auto}
+  .partner-logos{display:flex;justify-content:center;align-items:stretch;gap:24px;flex-wrap:wrap;margin-top:24px}
+  .partner-tile{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 30px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+  .partner-tile img{max-height:58px;max-width:230px;width:auto;object-fit:contain;display:block}
+  @media(max-width:640px){.partner-lockup{padding:18px}.partner-tile{padding:16px 20px}.partner-tile img{max-height:46px;max-width:150px}}
+  .proj-carousel{position:relative;margin-top:44px;display:flex;align-items:center;gap:10px}
+  .pc-viewport{overflow-x:auto;scroll-snap-type:x mandatory;flex:1;scrollbar-width:none;scroll-behavior:smooth}
+  .pc-viewport::-webkit-scrollbar{display:none}
+  .pc-track{display:flex;gap:28px;padding:10px 6px;justify-content:flex-start}
+  .proj-cover{flex:0 0 300px;max-width:300px;scroll-snap-align:center;text-align:center;display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;padding:8px}
+  .pc-media{width:196px;height:196px;position:relative;margin-bottom:6px}
+  .pc-media img{width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:2}
+  .pc-media::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:3px solid var(--tan);z-index:1}
+  .pc-media::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:3px solid var(--navy);opacity:.4;z-index:1;transform:rotate(7deg) scale(1.02)}
+  .proj-cover:hover .pc-media img{filter:brightness(.94)}
+  .proj-cover h3{font-size:1.18rem;color:var(--navy)}
+  .proj-cover p{font-size:.9rem;color:var(--muted)}
+  .pc-view{margin-top:4px;color:var(--navy);font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:.4em}
+  .proj-cover:hover .pc-view{color:var(--gold)}
+  .pc-view svg{width:15px;height:15px}
+  .pc-arrow{flex:none;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s,border-color .2s}
+  .pc-arrow:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .pc-arrow svg{width:22px;height:22px}
+  .pc-arrow[hidden]{display:none}
+  .pc-arrow:disabled{opacity:.3;cursor:default;background:#fff;color:var(--navy);border-color:var(--line)}
+  .proj-details{margin-top:6px}
+  .proj-detail{max-height:0;overflow:hidden;transition:max-height .45s ease}
+  .proj-detail-inner{padding:26px 6px 0;max-width:900px;margin:0 auto;text-align:left}
+  .proj-detail-inner .project-chips{justify-content:flex-start;margin-top:0;margin-bottom:18px}
+  .proj-detail-inner .project-funder{text-align:left;margin-top:0}
+  .partner-marquee{overflow:hidden;margin-top:26px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .pm-track{display:flex;gap:24px;width:max-content;animation:pmScroll 22s linear infinite}
+  .partner-marquee:hover .pm-track{animation-play-state:paused}
+  @keyframes pmScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.pm-track{animation:none;width:100%;justify-content:center}}
+
+  footer{background:var(--navy-deep);color:rgba(219,205,183,.72);padding:70px 0 34px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  .logo-foot{height:48px;width:auto;margin-bottom:16px}
+  footer h5{color:#fff;font-family:"Bricolage Grotesque";font-size:1rem;margin-bottom:16px;letter-spacing:.02em}
+  footer a{color:rgba(219,205,183,.72);font-size:.92rem;display:block;padding:5px 0;transition:color .15s}
+  footer a:hover{color:var(--tan)}
+  .foot-brand p{font-size:.92rem;margin-top:4px;max-width:34ch}
+  .socials{display:flex;gap:12px;margin-top:22px}
+  .social{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);color:rgba(219,205,183,.85);transition:background .2s,color .2s,border-color .2s,transform .2s}
+  .social:hover{background:var(--tan);color:var(--navy-deep);border-color:var(--tan);transform:translateY(-2px)}
+  .social svg{width:18px;height:18px}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:48px;padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.82rem;color:rgba(219,205,183,.55)}
+
+
+  /* ---------- hero photo slider ---------- */
+  .hero-slider{position:relative;height:min(88vh,760px);min-height:460px;overflow:hidden;background:var(--navy-deep)}
+  .hs-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease;background-size:cover;background-position:center}
+  .hs-slide.active{opacity:1}
+  .hs-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,22,47,.34) 0%,rgba(23,22,47,.12) 38%,rgba(23,22,47,.82) 100%)}
+  .hs-slide.noimg{background:linear-gradient(135deg,#242356,#17162F)}
+  .hs-slide.noimg .hint{position:absolute;inset:0;display:grid;place-items:center;color:rgba(219,205,183,.45);font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;z-index:1;padding:24px;text-align:center}
+  .hs-slide.active.kb{animation:kb 7s ease forwards}
+  @keyframes kb{from{transform:scale(1.001)}to{transform:scale(1.07)}}
+  .hs-overlay{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:flex-end;pointer-events:none}
+  .hs-overlay .wrap{width:100%;padding-bottom:64px}
+  .hs-eyebrow{color:var(--tan);font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.6em}
+  .hs-eyebrow::before{content:"";width:26px;height:2px;background:var(--tan);border-radius:2px}
+  .hs-cap{color:#fff;font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(1.7rem,3.6vw,2.7rem);letter-spacing:-.02em;max-width:20ch;margin-top:14px;min-height:1.1em;transition:opacity .5s ease}
+  .hs-cap.swap{opacity:0}
+  .hs-controls{position:absolute;left:0;right:0;bottom:64px;z-index:4}
+  .hs-controls .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .hs-dots{display:flex;gap:9px;pointer-events:auto}
+  .hs-dot{width:34px;height:4px;border-radius:3px;border:0;background:rgba(255,255,255,.32);cursor:pointer;padding:0;transition:background .25s}
+  .hs-dot.on{background:var(--tan)}
+  .hs-arrows{display:flex;gap:10px;pointer-events:auto}
+  .hs-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:rgba(23,22,47,.28);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .2s,border-color .2s;backdrop-filter:blur(4px)}
+  .hs-arrow:hover{background:var(--tan);border-color:var(--tan);color:var(--navy-deep)}
+  .hs-arrow svg{width:20px;height:20px}
+  @media(max-width:640px){
+    .hero-slider{height:78vh;min-height:420px}
+    .hs-overlay .wrap{padding-bottom:52px}
+    .hs-controls{bottom:20px}
+    .hs-controls .wrap{flex-direction:row-reverse;justify-content:space-between}
+    .hs-arrow{width:40px;height:40px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .hs-slide.active.kb{animation:none}
+    .hs-slide{transition:none}
+  }
+
+  .slot{outline:1.5px dashed var(--gold);outline-offset:3px;border-radius:6px}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:960px){
+    .themes,.pv,.impact-grid{grid-template-columns:1fr 1fr}
+    .values,.team-grid,.paths{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    section{padding:64px 0}
+    .hero{padding:56px 0 64px}
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    .hero-card{min-height:280px}
+    .logo-nav{height:36px}
+    .nav-links{position:fixed;inset:78px 0 auto 0;background:var(--paper);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 22px;border-bottom:1px solid var(--line);display:none}
+    .nav-links.open{display:flex}
+    .nav-links nav{flex-direction:column;gap:0;align-items:stretch}
+    .nav-item{width:100%}
+    .nav-link{padding:13px 0;border-bottom:1px solid var(--line);justify-content:space-between;width:100%}
+    .nav-link::after{display:none}
+    .nav-link .caret{display:none}
+    .dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-radius:0;padding:4px 0 10px 14px;min-width:0;background:transparent;gap:0}
+    .dropdown::before{display:none}
+    .dropdown a{padding:9px 0;border:0;color:var(--muted)}
+    .nav-links .btn{margin-top:14px;justify-content:center}
+    .nav-toggle{display:block}
+    .themes,.pv,.impact-grid,.values,.team-grid,.paths,.foot-grid{grid-template-columns:1fr}
+    .cta-band{padding:40px 24px}
+    .facts{gap:24px}
+  }
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Front Rise Health Uganda home">
+      <img class="logo-nav" src="brand/logo.png" alt="Front Rise Health Uganda — Community Health and Research" />
+    </a>
+    <div class="nav-links" id="menu">
+      <nav>
+        <div class="nav-item has-menu">
+          <a href="#purpose" class="nav-link">About Us <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="dropdown">
+            <a href="#our-purpose">Our purpose</a>
+            <a href="#our-vision">Our vision</a>
+            <a href="#our-values">Our values</a>
+          </div>
+        </div>
+        <div class="nav-item has-menu">
+          <a href="#work" class="nav-link">What we do <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="dropdown">
+            <a href="#theme-srhr">Reproductive health &amp; rights</a>
+            <a href="#theme-amr">Antimicrobial stewardship</a>
+            <a href="#theme-mental">Mental health</a>
+            <a href="#theme-research">Research &amp; innovation</a>
+            <a href="#theme-climate">Climate &amp; health</a>
+            <a href="#theme-community">Community health</a>
+          </div>
+        </div>
+        <div class="nav-item has-menu">
+          <a href="#impact" class="nav-link">Impact <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="dropdown">
+            <a href="#impact">Our reach</a>
+            <a href="#projects">FloodAdapt project</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="#team" class="nav-link">Team</a></div>
+        <div class="nav-item has-menu">
+          <a href="#involved" class="nav-link">Get involved <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="dropdown">
+            <a href="#involved-partner">Partner with us</a>
+            <a href="#involved-volunteer">Volunteer or mentor</a>
+            <a href="#involved-support">Support our work</a>
+            <a href="#involved-updates">Stay updated</a>
+          </div>
+        </div>
+      </nav>
+      <a href="#involved" class="btn btn-primary">Partner with us</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- ============ HERO PHOTO SLIDER ============ -->
+<section class="hero-slider" id="gallery" aria-roledescription="carousel" aria-label="Front Rise Health Uganda activities">
+  <div class="hs-track" id="hsTrack"></div>
+  <div class="hs-overlay">
+    <div class="wrap">
+      <span class="hs-eyebrow">Front Rise Health Uganda</span>
+      <h2 class="hs-cap" id="hsCap">Community health and research, across southwestern Uganda.</h2>
+    </div>
+  </div>
+  <div class="hs-controls">
+    <div class="wrap">
+      <div class="hs-dots" id="hsDots" role="tablist" aria-label="Choose slide"></div>
+      <div class="hs-arrows">
+        <button class="hs-arrow" id="hsPrev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="hs-arrow" id="hsNext" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Community Health and Research · Southwestern Uganda</span>
+      <h1 style="margin-top:20px">Health that <span class="rise">rises</span> from the community.</h1>
+      <p class="lede">Front Rise Health Uganda works across 12 districts to advance reproductive health, antimicrobial stewardship, mental health, and homegrown research — built with the communities we serve, not for them.</p>
+      <div class="hero-cta">
+        <a href="#involved" class="btn btn-primary">Partner with us</a>
+        <a href="#work" class="btn btn-ghost">See our work</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><div class="n">12</div><div class="l">Districts reached</div></div>
+        <div class="fact"><div class="n">6</div><div class="l">Focus areas</div></div>
+        <div class="fact"><div class="n" data-count="300">300</div><div class="l">Youth engaged</div></div>
+      </div>
+    </div>
+    <div class="hero-card reveal" aria-hidden="true" data-hero="photos/hero.jpg">
+      <div class="rings"></div><div class="arc"></div>
+      <div class="cap">
+        <span class="tag">Our approach</span>
+        <h3>Rooted in community, driven by evidence.</h3>
+        <p>We pair frontline outreach with research and interdisciplinary collaboration to tackle the causes of health disparity, not only its symptoms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="purpose" class="band-sand">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Why we exist</span><h2>Purpose and vision</h2></div>
+    <div class="pv">
+      <div class="card purpose reveal" id="our-purpose">
+        <span class="k">Our purpose</span>
+        <h3>Sustainable health, from the root up.</h3>
+        <p>To promote and implement sustainable health interventions that empower communities to improve access to quality care and address the root causes of health disparity and poverty &mdash; ensuring long-term well-being and resilience.</p>
+      </div>
+      <div class="card vision reveal" id="our-vision">
+        <span class="sun2" aria-hidden="true"></span>
+        <span class="k">Our vision</span>
+        <h3>A healthier, empowered Uganda.</h3>
+        <p>A healthier, poverty-free, empowered and sustainable Uganda where every individual has access to equitable health care and benefits from resilient, community-driven interventions.</p>
+      </div>
+    </div>
+    <div style="margin-top:56px" class="reveal" id="our-values">
+      <div style="text-align:center"><span class="eyebrow">What we stand for</span></div>
+      <div class="values">
+        <div class="value"><div class="num">01</div><h4>Accountability</h4><p>We take full responsibility to the communities and stakeholders we serve, not only to our own standards.</p></div>
+        <div class="value"><div class="num">02</div><h4>Integrity</h4><p>Honesty, fairness and ethical behaviour guide every decision &mdash; especially the difficult ones.</p></div>
+        <div class="value"><div class="num">03</div><h4>Respect</h4><p>We value diversity and honour every perspective, from colleagues to community members.</p></div>
+        <div class="value"><div class="num">04</div><h4>Teamwork</h4><p>Diverse talents working together produce solutions that outperform individual effort.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2>Our core themes</h2>
+      <p>Front Rise Health Uganda is a multidisciplinary organisation working to tackle critical health and development challenges through six connected pillars.</p>
+    </div>
+    <div class="themes">
+      <article class="theme reveal" id="theme-srhr">
+        <div class="theme-media" data-src="theme-photos/srhr.jpg"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 4.5 7 5c2 .25 3.5 2 5 4 1.5-2 3-3.75 5-4 4-.5 6.5 3.5 4.5 7.5C19 16.65 12 21 12 21z"/></svg></span></div>
+        <button class="theme-head" aria-expanded="false"><h3>Reproductive Health & Rights</h3><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="theme-detail"><div class="theme-detail-inner"><p>We raise awareness and advocate for SRHR, giving women and young people the information and space to make informed decisions about their health.</p><div class="obj"><b>Objective &mdash;</b> Increase access, awareness and advocacy for SRHR among women and youth in rural communities of Uganda.</div></div></div>
+      </article>
+      <article class="theme reveal" id="theme-amr">
+        <div class="theme-media" data-src="theme-photos/amr.jpg"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6v4l4 4v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-9l4-4V3z"/><path d="M9 13h6M12 10v6"/></svg></span></div>
+        <button class="theme-head" aria-expanded="false"><h3>Antimicrobial Stewardship</h3><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="theme-detail"><div class="theme-detail-inner"><p>We educate communities on responsible antibiotic use, hygiene and infection prevention, and build interdisciplinary collaboration against AMR.</p><div class="obj"><b>Objective &mdash;</b> Promote evidence-based strategies and interdisciplinary collaboration, and advocate for sustainable practices in the fight against AMR.</div></div></div>
+      </article>
+      <article class="theme reveal" id="theme-mental">
+        <div class="theme-media" data-src="theme-photos/mental-health.jpg"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a5 5 0 0 1 5 5c0 2-1 3-1 5v2a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2c0-2-1-3-1-5a5 5 0 0 1 5-5z"/><path d="M10 20h4"/></svg></span></div>
+        <button class="theme-head" aria-expanded="false"><h3>Mental Health</h3><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="theme-detail"><div class="theme-detail-inner"><p>We work to demystify mental illness, reduce stigma, and connect people in underserved communities to early detection and appropriate care.</p><div class="obj"><b>Objective &mdash;</b> Improve early detection and management of mental health conditions in underserved populations through research, community intervention, capacity building and stigma reduction.</div></div></div>
+      </article>
+      <article class="theme reveal" id="theme-research">
+        <div class="theme-media" data-src="theme-photos/research.jpg"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3v6.5L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L15 9.5V3"/><path d="M8 3h8M9 14h6"/></svg></span></div>
+        <button class="theme-head" aria-expanded="false"><h3>Research & Innovation</h3><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="theme-detail"><div class="theme-detail-inner"><p>Our Research and Development Unit strengthens young scientists in southwestern Uganda, so local problems find locally-designed solutions.</p><div class="obj"><b>Objective &mdash;</b> Strengthen the research and innovation skills of young scientists, empowering them to develop effective local solutions and advance sustainable development.</div></div></div>
+      </article>
+      <article class="theme reveal" id="theme-climate">
+        <div class="theme-media" data-src="theme-photos/climate.jpg"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 21c0-6 4-12 14-14 0 8-5 13-11 13a4 4 0 0 1-3-1z"/><path d="M9 17c2-3 4-5 7-6"/></svg></span></div>
+        <button class="theme-head" aria-expanded="false"><h3>Climate & Health</h3><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="theme-detail"><div class="theme-detail-inner"><p>We help communities adapt to a changing climate, safeguard environmental health, and build resilience against climate-driven health risks.</p><div class="obj"><b>Objective &mdash;</b> Promote climate change adaptation, environmental health and community resilience.</div></div></div>
+      </article>
+      <article class="theme reveal" id="theme-community">
+        <div class="theme-media" data-src="theme-photos/community.jpg"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M15 5.2a3 3 0 0 1 0 5.6"/><path d="M3 20a6 6 0 0 1 12 0M16.5 14.3A6 6 0 0 1 21 20"/></svg></span></div>
+        <button class="theme-head" aria-expanded="false"><h3>Community Health</h3><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="theme-detail"><div class="theme-detail-inner"><p>We strengthen community health systems and the livelihoods that sustain them, so care stays reliable, local and owned by the people it serves.</p><div class="obj"><b>Objective &mdash;</b> Strengthen community health systems and livelihoods.</div></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="impact" class="band-navy">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow" style="color:var(--tan)">Our reach</span><h2 style="color:#fff">Measurable work across southwestern Uganda.</h2></div>
+    <div class="impact-grid">
+      <div class="stat reveal"><div class="n">12</div><div class="l">Districts of operation</div></div>
+      <div class="stat reveal"><div class="n">6</div><div class="l">Programme themes</div></div>
+      <div class="stat reveal"><div class="n" data-count="10" data-suffix="+">10+</div><div class="l">Community outreaches held</div></div>
+      <div class="stat reveal"><div class="n" data-count="300">300</div><div class="l">Young people engaged</div></div>
+    </div>
+    <p class="impact-note reveal">To date, our teams have engaged 300 young people through more than 10 community outreaches. Front Rise Health Uganda is guided by a five-year implementation framework (2027&ndash;2031) spanning nine core objectives across all six themes.</p>
+  </div>
+</section>
+
+<!-- ============ FEATURED PROJECT ============ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Our projects</span>
+      <h2>Delivering on the ground</h2>
+      <p>A closer look at the work behind our themes. Select a project to explore.</p>
+    </div>
+
+    <div class="proj-carousel reveal">
+      <button class="pc-arrow pc-prev" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="pc-viewport" id="pcViewport">
+        <div class="pc-track">
+          <article class="proj-cover" data-target="proj-floodadapt" tabindex="0" role="button" aria-label="Open FloodAdapt Communities Project">
+            <div class="pc-media"><img src="project-photos/floodadapt-cover.jpg" alt="FloodAdapt community gathering in Kasese"></div>
+            <span class="project-status">In progress</span>
+            <h3>FloodAdapt Communities Project</h3>
+            <p>Youth-led flood resilience across Karusandara and Chelanga sub-counties, Kasese.</p>
+            <span class="pc-view">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></span>
+          </article>
+          <!-- ADD A PROJECT: copy this .proj-cover block, set data-target to a new detail id, and add a matching <div class="proj-detail" id="..."> below. -->
+        </div>
+      </div>
+      <button class="pc-arrow pc-next" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+
+    <div class="proj-details">
+      <div class="proj-detail" id="proj-floodadapt">
+        <div class="proj-detail-inner">
+          <p class="project-lead">Across Karusandara and Chelanga sub-counties in Kasese &mdash; one of Uganda&rsquo;s most flood-prone areas &mdash; the FloodAdapt Communities Project mobilises youth and community members on flood preparedness and climate-risk awareness, trains village disaster-preparedness and management committees, and establishes bamboo nursery beds to stabilise flood-prone land &mdash; building local capacity to anticipate, withstand and recover from climate-driven flooding.</p>
+          <div class="project-stats">
+            <div><div class="ps-n">500</div><div class="ps-l">People reached</div></div>
+            <div><div class="ps-n">Kasese</div><div class="ps-l">District of operation</div></div>
+          </div>
+          <div class="project-chips"><span>Karusandara &amp; Chelanga</span><span>Climate resilience</span><span>Youth-led</span></div>
+          <p class="project-funder">Funded by the <b>European Union</b> through the Youth Empowerment Fund, delivered with Global Youth Mobilization.</p>
+          <div class="project-gallery"><button class="pg-item" aria-label="Open project photo 1"><img src="project-photos/floodadapt-1.jpg" alt="FloodAdapt project photo 1" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 2"><img src="project-photos/floodadapt-2.jpg" alt="FloodAdapt project photo 2" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 3"><img src="project-photos/floodadapt-3.jpg" alt="FloodAdapt project photo 3" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 4"><img src="project-photos/floodadapt-4.jpg" alt="FloodAdapt project photo 4" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 5"><img src="project-photos/floodadapt-5.jpg" alt="FloodAdapt project photo 5" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 6"><img src="project-photos/floodadapt-6.jpg" alt="FloodAdapt project photo 6" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 7"><img src="project-photos/floodadapt-7.jpg" alt="FloodAdapt project photo 7" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 8"><img src="project-photos/floodadapt-8.jpg" alt="FloodAdapt project photo 8" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 9"><img src="project-photos/floodadapt-9.jpg" alt="FloodAdapt project photo 9" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 10"><img src="project-photos/floodadapt-10.jpg" alt="FloodAdapt project photo 10" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 11"><img src="project-photos/floodadapt-11.jpg" alt="FloodAdapt project photo 11" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 12"><img src="project-photos/floodadapt-12.jpg" alt="FloodAdapt project photo 12" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 13"><img src="project-photos/floodadapt-13.jpg" alt="FloodAdapt project photo 13" loading="lazy"></button><button class="pg-item" aria-label="Open project photo 14"><img src="project-photos/floodadapt-14.jpg" alt="FloodAdapt project photo 14" loading="lazy"></button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="team-hidden">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Our people</span>
+      <h2>A multidisciplinary team behind every programme.</h2>
+      <p>Clinicians, researchers and community advocates working across the six themes.</p>
+    </div>
+    <div class="team-grid"><article class="member"><div class="avatar" style="background:#21204B" data-photo="team-photos/joyce-namwase.jpg">JN</div><h4>Dr Joyce Namwase</h4><div class="role">Director</div><p>Medical doctor specialising in psychiatry, with a Master of Medicine.</p></article><article class="member"><div class="avatar" style="background:#2d2c63" data-photo="team-photos/julius-kyomya.jpg">JK</div><h4>Julius Kyomya</h4><div class="role">Deputy Director</div><p>Clinical pharmacist and researcher at Mbarara University of Science and Technology.</p></article><article class="member"><div class="avatar" style="background:#C1AD92;color:#17162F" data-photo="team-photos/erikan-baluku.jpg">EB</div><h4>Erikan Baluku</h4><div class="role">Program Manager</div><p>Molecular scientist and PhD candidate in Biological Sciences, University of Auckland.</p></article><article class="member"><div class="avatar" style="background:#17162F" data-photo="team-photos/elicana-nduhura.jpg">EN</div><h4>Dr Elicana Nduhura</h4><div class="role">SRH Officer</div><p>Licensed general practitioner with a focus on health-systems strengthening.</p></article><article class="member"><div class="avatar" style="background:#2d2c63" data-photo="team-photos/murungi-tom.jpg">MT</div><h4>Murungi Tom</h4><div class="role">Outreach Coordinator</div><p>Registered midwife and early-career researcher advocating for SRHR.</p></article><article class="member"><div class="avatar" style="background:#21204B" data-photo="team-photos/ochola-henry.jpg">OH</div><h4>Dr Ochola Henry</h4><div class="role">Project Advisor</div><p>Medical doctor specialising in obstetrics and gynaecology.</p></article><article class="member"><div class="avatar" style="background:#17162F" data-photo="team-photos/mukasa-edmond.jpg">ME</div><h4>Mukasa Edmond</h4><div class="role">Coordinator</div><p>Humanitarian worker and secondary-school head teacher in the community.</p></article><article class="member"><div class="avatar" style="background:#C1AD92;color:#17162F" data-photo="team-photos/kushaba-yvonne.jpg">KY</div><h4>Kushaba Yvonne</h4><div class="role">Accountant</div><p>Oversees financial management and reporting across programmes.</p></article></div>
+  </div>
+</section>
+
+<section id="involved" class="band-sand">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Get involved</span><h2>There&rsquo;s a place here for partners, professionals and communities.</h2></div>
+    <div class="paths">
+      <div class="path reveal" id="involved-partner">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM3 21a7 7 0 0 1 18 0"/></svg></span>
+        <h4>Partner with us</h4><p>Collaborate on programmes and research to amplify impact across the region.</p><a href="#contact">Start a conversation &rarr;</a>
+      </div>
+      <div class="path reveal" id="involved-volunteer">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 4.5 7 5c2 .25 3.5 2 5 4 1.5-2 3-3.75 5-4 4-.5 6.5 3.5 4.5 7.5C19 16.65 12 21 12 21z"/></svg></span>
+        <h4>Volunteer or mentor</h4><p>Share clinical, research or outreach expertise with the next generation.</p><a href="#contact">Offer your skills &rarr;</a>
+      </div>
+      <div class="path reveal" id="involved-support">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg></span>
+        <h4>Support our work</h4><p>Fund outreaches, stewardship campaigns and the research unit&rsquo;s training.</p><a href="mailto:info@frontriseug.org?subject=Supporting%20Front%20Rise%20Health%20Uganda&amp;body=I%27d%20like%20to%20support%20your%20work.">Donate &rarr;</a>
+      </div>
+      <div class="path reveal" id="involved-updates">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
+        <h4>Stay updated</h4><p>Follow programme news, events and opportunities from the field.</p><a href="mailto:info@frontriseug.org?subject=Subscribe%20to%20FRHU%20updates&amp;body=Please%20add%20me%20to%20your%20updates.">Subscribe &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="partners reveal">
+      <p class="partners-label">Our partners &amp; funders</p>
+      <div class="partner-lockup"><img src="partners/eu-partners.jpg" alt="Funded by the European Union. In partnership with Global Youth Mobilization. An initiative of World Scouting, World YMCA, World YWCA, World Association of Girl Guides and Girl Scouts, The Duke of Edinburgh's International Award, and IFRC." /></div>
+      <div class="partner-marquee">
+        <div class="pm-track" id="pmTrack">
+          <div class="partner-tile"><img src="partners/youth-empowerment-fund.jpg" alt="Youth Empowerment Fund" /></div>
+          <div class="partner-tile"><img src="partners/lupins-africa.jpg" alt="Lupins Africa" /></div>
+          <div class="partner-tile"><img src="partners/urc.jpg" alt="Uganda Red Cross Society"/></div>
+          <div class="partner-tile"><img src="partners/ksd.jpg" alt="Kasese District Local Government"/></div>
+          <!-- ADD A PARTNER: copy a .partner-tile block with the new logo. -->
+        </div>
+      </div>
+    </div>
+    <div class="cta-band reveal">
+      <div class="sun3" aria-hidden="true"></div>
+      <h2>Let&rsquo;s build healthier communities, together.</h2>
+      <p>Whether you&rsquo;re a funder, a fellow organisation, a clinician or a community leader &mdash; we&rsquo;d like to hear from you.</p>
+      <div class="row">
+        <a href="mailto:info@frontriseug.org?subject=Website%20enquiry%20-%20Front%20Rise%20Health%20Uganda" class="btn btn-gold">Email us</a>
+        <a href="#top" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.35)">Back to top</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img class="logo-foot" src="brand/logo-white.png" alt="Front Rise Health Uganda" />
+        <p>A multidisciplinary organisation advancing community-led health across 12 districts of southwestern Uganda.</p>
+        <div class="socials">
+          <a class="social" href="https://www.linkedin.com/company/frontriseug/" target="_blank" rel="noopener" aria-label="Front Rise Health Uganda on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+          <a class="social" href="https://wa.me/256784603843" target="_blank" rel="noopener" aria-label="Front Rise Health Uganda on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.13-2.9-7A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14-.01-.31-.01-.48-.01s-.43.06-.66.31c-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg></a>
+          <!-- MORE SOCIALS: copy the line above, change the href and swap the icon.
+               Send me your Facebook / X / Instagram / YouTube links and I'll add them. -->
+        </div>
+      </div>
+      <div><h5>Explore</h5><a href="#work">What we do</a><a href="#purpose">Purpose &amp; vision</a><a href="#impact">Impact</a><a href="#team">Our team</a></div>
+      <div><h5>Themes</h5><a href="#theme-srhr">Reproductive health &amp; rights</a><a href="#theme-amr">Antimicrobial stewardship</a><a href="#theme-mental">Mental health</a><a href="#theme-research">Research &amp; innovation</a><a href="#theme-climate">Climate &amp; health</a><a href="#theme-community">Community health</a></div>
+      <div><h5>Contact</h5><a href="mailto:info@frontriseug.org">info@frontriseug.org</a><a href="https://wa.me/256784603843" target="_blank" rel="noopener">WhatsApp: +256 784 603 843</a><a>Kamukazi Ward, Boma.<br>P.O. Box 422288, Mbarara City, Uganda</a><a href="#involved">Partner with us</a></div>
+    </div>
+    <div class="foot-bottom"><span>&copy; 2026 Front Rise Health Uganda. All rights reserved.</span><span>Community Health and Research · Southwestern Uganda</span></div>
+  </div>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>12);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const toggle=document.getElementById('navToggle'),menu=document.getElementById('menu');
+  toggle.addEventListener('click',()=>{const o=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',o);});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded',false);}));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%4,3)*60)+'ms';io.observe(el);});
+
+  /* ===== hero photo slider =====
+     TO ADD YOUR PHOTOS: create a folder named "photos" next to this file,
+     drop your images in, and edit the src + caption for each slide below.
+     Add or remove {...} entries freely. Recommended: wide landscape photos,
+     at least 1600px across. Until a file exists, the slide shows a clean
+     navy panel with its caption, so nothing ever looks broken. */
+  const SLIDES = [
+    { src:"photos/activity-1.jpg", caption:"FloodAdapt communities project, Kasese district." },
+    { src:"photos/activity-2.jpg", caption:"Training team at Frontrise Health Uganda." },
+    { src:"photos/activity-3.jpg", caption:"Community outreach and mobilisation of the youth." },
+    { src:"photos/activity-4.jpg", caption:"Building community resilience to climate change disasters." }
+  ];
+  (function(){
+    const track=document.getElementById('hsTrack'),dots=document.getElementById('hsDots'),
+          cap=document.getElementById('hsCap'),prev=document.getElementById('hsPrev'),
+          next=document.getElementById('hsNext'),root=document.getElementById('gallery');
+    if(!track||!SLIDES.length) return;
+    const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    let i=0,timer=null;
+    SLIDES.forEach((s,idx)=>{
+      const sl=document.createElement('div');
+      sl.className='hs-slide'+(idx===0?' active':'');
+      sl.setAttribute('role','group'); sl.setAttribute('aria-roledescription','slide');
+      sl.setAttribute('aria-label',(idx+1)+' of '+SLIDES.length);
+      const img=new Image();
+      img.onload=()=>{ sl.style.backgroundImage='url("'+s.src+'")'; if(idx===0&&!reduce) sl.classList.add('kb'); };
+      img.onerror=()=>{ sl.classList.add('noimg'); const hn=document.createElement('span');
+        hn.className='hint'; hn.textContent='Add photo → '+s.src; sl.appendChild(hn); };
+      img.src=s.src;
+      track.appendChild(sl);
+      const d=document.createElement('button');
+      d.className='hs-dot'+(idx===0?' on':''); d.setAttribute('role','tab');
+      d.setAttribute('aria-label','Slide '+(idx+1)); d.addEventListener('click',()=>go(idx,true));
+      dots.appendChild(d);
+    });
+    const slides=[...track.children],dotEls=[...dots.children];
+    function go(n,manual){
+      n=(n+SLIDES.length)%SLIDES.length;
+      slides[i].classList.remove('active','kb');
+      dotEls[i].classList.remove('on');
+      i=n;
+      slides[i].classList.add('active'); if(!reduce&&!slides[i].classList.contains('noimg')) slides[i].classList.add('kb');
+      dotEls[i].classList.add('on');
+      cap.classList.add('swap');
+      setTimeout(()=>{ cap.textContent=SLIDES[i].caption; cap.classList.remove('swap'); },300);
+      if(manual) restart();
+    }
+    function restart(){ if(reduce) return; clearInterval(timer); timer=setInterval(()=>go(i+1),6000); }
+    next.addEventListener('click',()=>go(i+1,true));
+    prev.addEventListener('click',()=>go(i-1,true));
+    root.addEventListener('mouseenter',()=>clearInterval(timer));
+    root.addEventListener('mouseleave',restart);
+    root.addEventListener('focusin',()=>clearInterval(timer));
+    root.addEventListener('focusout',restart);
+    document.addEventListener('keydown',e=>{
+      const r=root.getBoundingClientRect(); if(r.bottom<0) return;
+      if(e.key==='ArrowRight')go(i+1,true); if(e.key==='ArrowLeft')go(i-1,true);
+    });
+    let x0=null;
+    root.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    root.addEventListener('touchend',e=>{ if(x0===null)return;
+      const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>44) go(i+(dx<0?1:-1),true); x0=null; },{passive:true});
+    restart();
+  })();
+
+
+  /* ===== count-up for stat numbers ===== */
+  (function(){
+    const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const els=document.querySelectorAll('[data-count]');
+    if(!els.length) return;
+    if(reduce) return; // static values already in the HTML
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting) return;
+        const el=e.target, target=+el.dataset.count, suffix=el.dataset.suffix||'';
+        const dur=1100, t0=performance.now();
+        function tick(now){
+          const p=Math.min((now-t0)/dur,1);
+          const val=Math.round((1-Math.pow(1-p,3))*target); // easeOutCubic
+          el.textContent=val+suffix;
+          if(p<1) requestAnimationFrame(tick);
+        }
+        el.textContent='0'+suffix;
+        requestAnimationFrame(tick);
+        io.unobserve(el);
+      });
+    },{threshold:.5});
+    els.forEach(el=>io.observe(el));
+  })();
+
+
+  /* ===== theme card photos =====
+     Drop images into a "theme-photos" folder next to this file:
+     srhr.jpg, amr.jpg, mental-health.jpg, research.jpg  (landscape, ~1200px wide).
+     Missing files fall back to a labelled navy panel. */
+  document.querySelectorAll('.theme-media[data-src],.project-media[data-src]').forEach(m=>{
+    const src=m.dataset.src;
+    const hint=document.createElement('span');hint.className='hint';hint.textContent='Add photo → '+src;m.appendChild(hint);
+    const probe=new Image();
+    probe.onload=()=>{const el=document.createElement('img');el.className='ph';el.src=src;el.alt='';m.insertBefore(el,m.firstChild);m.classList.add('loaded');};
+    probe.src=src;
+  });
+
+
+  /* ===== active-tab scroll spy ===== */
+  (function(){
+    const sections=[...document.querySelectorAll('section[id]')];
+    const links=[...document.querySelectorAll('.nav-link')];
+    function spy(){
+      const y=window.scrollY+130; let cur=null;
+      for(const s of sections){ if(s.offsetParent!==null && s.offsetTop<=y) cur=s.id; }
+      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur));
+    }
+    window.addEventListener('scroll',spy,{passive:true});
+    window.addEventListener('resize',spy); spy();
+  })();
+  /* ===== dropdown: open on tap for touch/tablet (hover handles desktop) ===== */
+  (function(){
+    const coarse=window.matchMedia('(hover:none) and (min-width:641px)');
+    document.querySelectorAll('.nav-item.has-menu > .nav-link').forEach(link=>{
+      link.addEventListener('click',e=>{
+        if(!coarse.matches) return;
+        const item=link.parentElement;
+        if(!item.classList.contains('open')){
+          e.preventDefault();
+          document.querySelectorAll('.nav-item.open').forEach(o=>{if(o!==item)o.classList.remove('open');});
+          item.classList.add('open');
+        }
+      });
+    });
+    document.addEventListener('click',e=>{
+      if(!e.target.closest('.nav-item.has-menu'))
+        document.querySelectorAll('.nav-item.open').forEach(o=>o.classList.remove('open'));
+    });
+  })();
+
+
+  /* ===== theme accordion (single-open) ===== */
+  (function(){
+    function open(card,force){
+      const d=card.querySelector('.theme-detail'),h=card.querySelector('.theme-head'),is=card.classList.contains('open');
+      document.querySelectorAll('.theme.open').forEach(c=>{if(c!==card){c.classList.remove('open');c.querySelector('.theme-head').setAttribute('aria-expanded','false');c.querySelector('.theme-detail').style.maxHeight='0px';}});
+      const willOpen = force ? true : !is;
+      card.classList.toggle('open',willOpen);
+      h.setAttribute('aria-expanded',willOpen);
+      d.style.maxHeight = willOpen ? d.querySelector('.theme-detail-inner').scrollHeight+'px' : '0px';
+    }
+    document.querySelectorAll('.theme-head').forEach(h=>h.addEventListener('click',()=>open(h.closest('.theme'))));
+    document.querySelectorAll('a[href^="#theme-"]').forEach(a=>a.addEventListener('click',()=>{
+      const c=document.querySelector(a.getAttribute('href')); if(c&&c.classList.contains('theme')) setTimeout(()=>open(c,true),420);
+    }));
+    window.addEventListener('resize',()=>document.querySelectorAll('.theme.open .theme-detail').forEach(d=>{d.style.maxHeight=d.querySelector('.theme-detail-inner').scrollHeight+'px';}));
+  })();
+
+
+  /* ===== team member photos (initials fallback) ===== */
+  document.querySelectorAll('.avatar[data-photo]').forEach(a=>{
+    const src=a.dataset.photo, probe=new Image();
+    probe.onload=()=>{const el=document.createElement('img');el.className='ph';el.src=src;el.alt='';a.appendChild(el);};
+    probe.src=src;
+  });
+
+
+  /* ===== team reveal on demand ===== */
+  (function(){
+    const wrap=document.getElementById('teamCollapse'), btn=document.getElementById('teamToggle');
+    if(!wrap||!btn) return;
+    let open=false;
+    function setOpen(v){
+      if(v===open) return; open=v;
+      btn.setAttribute('aria-expanded',open);
+      btn.firstChild.textContent = open ? 'Hide team ' : 'Meet the team ';
+      if(open){
+        wrap.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+        wrap.style.maxHeight=wrap.scrollHeight+'px';
+        wrap.addEventListener('transitionend',function te(){ if(open) wrap.style.maxHeight='none'; wrap.removeEventListener('transitionend',te); });
+      }else{
+        wrap.style.maxHeight=wrap.scrollHeight+'px';
+        requestAnimationFrame(()=>{ wrap.style.maxHeight='0px'; });
+      }
+    }
+    btn.addEventListener('click',()=>setOpen(!open));
+    document.querySelectorAll('a[href="#team"]').forEach(a=>a.addEventListener('click',()=>{ if(!open) setOpen(true); }));
+  })();
+
+
+  /* ===== project gallery lightbox ===== */
+  (function(){
+    const lb=document.getElementById('lightbox');
+    const items=[...document.querySelectorAll('.pg-item')];
+    if(!lb||!items.length) return;
+    const img=document.getElementById('lbImg'), count=document.getElementById('lbCount');
+    const srcs=items.map(b=>b.querySelector('img').src);
+    let i=0;
+    function show(n){ i=(n+srcs.length)%srcs.length; img.src=srcs[i]; count.textContent=(i+1)+' / '+srcs.length; }
+    function openLb(n){ show(n); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+    items.forEach((b,n)=>b.addEventListener('click',()=>openLb(n)));
+    document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();show(i+1);});
+    document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();show(i-1);});
+    document.getElementById('lbClose').addEventListener('click',closeLb);
+    lb.addEventListener('click',e=>{ if(e.target===lb) closeLb(); });
+    document.addEventListener('keydown',e=>{ if(!lb.classList.contains('open'))return;
+      if(e.key==='Escape')closeLb(); if(e.key==='ArrowRight')show(i+1); if(e.key==='ArrowLeft')show(i-1); });
+  })();
+
+
+  /* ===== project card accordion (scales to multiple projects) ===== */
+  (function(){
+    function toggle(card,force){
+      const body=card.querySelector('.project-collapse'),head=card.querySelector('.project-head');
+      const open = force===true ? true : !card.classList.contains('open');
+      if(force===true && card.classList.contains('open')) return;
+      card.classList.toggle('open',open);
+      head.setAttribute('aria-expanded',open);
+      head.querySelector('.ph-label').textContent = open ? 'Hide' : 'View project';
+      if(open){
+        body.style.maxHeight=body.scrollHeight+'px';
+        body.addEventListener('transitionend',function te(){ if(card.classList.contains('open')) body.style.maxHeight='none'; body.removeEventListener('transitionend',te); });
+      }else{
+        body.style.maxHeight=body.scrollHeight+'px';
+        requestAnimationFrame(()=>{ body.style.maxHeight='0px'; });
+      }
+    }
+    document.querySelectorAll('.project-head').forEach(h=>h.addEventListener('click',()=>toggle(h.closest('.project-card'))));
+    document.querySelectorAll('a[href="#projects"]').forEach(a=>a.addEventListener('click',()=>{ const c=document.querySelector('.project-card'); if(c) toggle(c,true); }));
+    window.addEventListener('resize',()=>document.querySelectorAll('.project-card.open .project-collapse').forEach(b=>{b.style.maxHeight=b.querySelector('.project-collapse-inner').scrollHeight+'px';}));
+  })();
+
+
+  /* ===== projects carousel + detail ===== */
+  (function(){
+    const vp=document.getElementById('pcViewport'); if(!vp) return;
+    const track=vp.querySelector('.pc-track');
+    const prev=document.querySelector('.pc-prev'), next=document.querySelector('.pc-next');
+    function cardW(){ const c=vp.querySelector('.proj-cover'); return c?c.offsetWidth+28:320; }
+    function update(){
+      const noScroll=vp.scrollWidth<=vp.clientWidth+2;
+      track.style.justifyContent = noScroll?'center':'flex-start';
+      prev.hidden=next.hidden=noScroll;
+      if(!noScroll){ prev.disabled=vp.scrollLeft<=2; next.disabled=vp.scrollLeft+vp.clientWidth>=vp.scrollWidth-2; }
+    }
+    prev.addEventListener('click',()=>vp.scrollBy({left:-cardW(),behavior:'smooth'}));
+    next.addEventListener('click',()=>vp.scrollBy({left:cardW(),behavior:'smooth'}));
+    vp.addEventListener('scroll',update); window.addEventListener('resize',update); update();
+    function openDetail(id,force){
+      const d=document.getElementById(id); if(!d) return;
+      const opening = force===true ? true : d.dataset.open!=='1';
+      document.querySelectorAll('.proj-detail').forEach(x=>{ if(x!==d){ x.dataset.open=''; x.style.maxHeight='0px'; }});
+      d.dataset.open = opening?'1':'';
+      if(opening){
+        d.style.maxHeight=d.querySelector('.proj-detail-inner').scrollHeight+'px';
+        d.addEventListener('transitionend',function te(){ if(d.dataset.open==='1') d.style.maxHeight='none'; d.removeEventListener('transitionend',te); });
+        d.scrollIntoView({behavior:'smooth',block:'nearest'});
+      } else { d.style.maxHeight='0px'; }
+    }
+    document.querySelectorAll('.proj-cover').forEach(c=>{
+      c.addEventListener('click',()=>openDetail(c.dataset.target));
+      c.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();openDetail(c.dataset.target);} });
+    });
+    document.querySelectorAll('a[href="#projects"]').forEach(a=>a.addEventListener('click',()=>{
+      const f=document.querySelector('.proj-cover'); if(f) openDetail(f.dataset.target,true);
+    }));
+    window.addEventListener('resize',()=>document.querySelectorAll('.proj-detail[data-open="1"]').forEach(d=>{d.style.maxHeight=d.querySelector('.proj-detail-inner').scrollHeight+'px';}));
+  })();
+  /* seamless marquee loop */
+  (function(){ const t=document.getElementById('pmTrack'); if(t) t.innerHTML+=t.innerHTML; })();
+
+
+  /* ===== team panel: hidden on landing, opens from Team nav ===== */
+  (function(){
+    const sec=document.getElementById('team'); if(!sec) return;
+    document.querySelectorAll('a[href="#team"]').forEach(a=>a.addEventListener('click',e=>{
+      e.preventDefault();
+      const nowHidden=sec.classList.toggle('team-hidden');
+      const menu=document.getElementById('menu'); if(menu) menu.classList.remove('open');
+      if(!nowHidden){ sec.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')); sec.scrollIntoView({behavior:'smooth',block:'start'}); }
+    }));
+  })();
+
+
+  /* ===== hero photo (drop photos/hero.jpg to replace the decorative card) ===== */
+  (function(){
+    const card=document.querySelector('.hero-card[data-hero]'); if(!card) return;
+    const src=card.dataset.hero, probe=new Image();
+    probe.onload=()=>{ const img=document.createElement('img'); img.className='hero-photo'; img.src=src; img.alt=''; card.insertBefore(img,card.firstChild); card.classList.add('photo'); };
+    probe.src=src;
+  })();
+
+</script>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project photo viewer">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <img id="lbImg" src="" alt="FloodAdapt project photo" />
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+</body>
+</html>
